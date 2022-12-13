@@ -23,3 +23,5 @@
 5. The program uses Plotly to visualize the bar graph in the browser
 6. Users enter exit to quit the program
 
+## How recommendation products are stored into graphs
+In this project, I stored the dependency of the recommendation data into a non-directed graph using defaultdict(list). Every node of the graph is the url of the recommendation product on Costco. The user will select one product on Costco website, then the scraper retrieves the recommendation products data in the “Member also bought” section, and then the recommendation products will be the first level from the root node, which is the product selected by the user at first. Similarly, the scraper will then put the recommendation products’ url into URL, then continue scraping the following levels of recommendation. The graph is completely constructed after all recommendation product are reached (I used productCache.json to check the repeated products). The graph is stored in recommendation_product_graph.json.
